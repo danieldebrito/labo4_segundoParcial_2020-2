@@ -11,6 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// ============================== mys modules ============================== //
+import { LayoutModule } from './layout/layout.module';
+import { AuthModule } from './auth/auth.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     BrowserAnimationsModule,
+    // ****************** mys MODULES ************************ //
+    LayoutModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
