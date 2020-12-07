@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
@@ -11,22 +11,32 @@ import { User } from 'src/app/auth/models/user.interface';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
+  public showErrors = false;
+
   registerForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(20)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]),
+    nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(40), Validators.pattern("[a-zA-Z ]{2,41}")]),
+    apellido: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(40), Validators.pattern("[a-zA-Z ]{2,41}")]),
+    dni: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(8), Validators.pattern("^[0-9]*$")]),
   });
 
-  constructor(private authSvc: AuthService, private router: Router) {}
+  constructor(private authSvc: AuthService, private router: Router) { }
 
   async onRegister() {
-    const { email, password } = this.registerForm.value;
-    try {
-      const user = await this.authSvc.register(email, password);
-      if (user) {
-        this.checkUserIsVerified(user);
+    if (this.registerForm.invalid) {
+      this.showErrors = true;
+    } else {
+      const { email, password } = this.registerForm.value;
+      try {
+        const user = await this.authSvc.register(email, password);
+        if (user) {
+          this.checkUserIsVerified(user);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   }
 
@@ -38,5 +48,9 @@ export class RegisterComponent {
     } else {
       this.router.navigate(['/register']);
     }
+  }
+
+  public resetError(){
+      this.showErrors = false;
   }
 }

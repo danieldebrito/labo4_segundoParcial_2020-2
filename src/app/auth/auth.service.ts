@@ -2,6 +2,7 @@ import { User } from 'src/app/auth/models/user.interface';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 // import { auth } from 'firebase/app';
+import firebase from 'firebase/app'
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import {
@@ -27,18 +28,18 @@ export class AuthService extends RoleValidator {
       })
     );
   }
-/*
+
   async loginGoogle(): Promise<User> {
     try {
       const { user } = await this.afAuth.signInWithPopup(
-        new auth.GoogleAuthProvider()
+        new firebase.auth.GoogleAuthProvider()
       );
       this.updateUserData(user);
       return user;
     } catch (error) {
       console.log(error);
     }
-  }*/
+  }
 
   async resetPassword(email: string): Promise<void> {
     try {

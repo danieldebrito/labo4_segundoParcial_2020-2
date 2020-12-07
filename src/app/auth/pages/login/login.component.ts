@@ -19,7 +19,6 @@ export class LoginComponent {
   });
 
   constructor(private authSvc: AuthService, private router: Router) { }
-  /*
 
   async onGoogleLogin(): Promise<void> {
     try {
@@ -31,7 +30,6 @@ export class LoginComponent {
       console.log(error);
     }
   }
-  */
 
   public cargarLogin(): void {
     this.loginForm = new FormGroup({
