@@ -10,6 +10,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { RoleValidator } from 'src/app/auth/helpers/roleValidator';
+import { Alumno } from '../alumno/class/alumno';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class AuthService extends RoleValidator {
       const { user } = await this.afAuth.signInWithPopup(
         new firebase.auth.GoogleAuthProvider()
       );
-      this.updateUserData(user);
+      // this.updateUserData(user);
       return user;
     } catch (error) {
       console.log(error);
@@ -67,13 +68,16 @@ export class AuthService extends RoleValidator {
     }
   }
 
-  async register(email: string, password: string): Promise<User> {
+  async register( email: string, password: string, nombre: string, apellido: string, dni: number, role ): Promise<User> {
     try {
       const { user } = await this.afAuth.createUserWithEmailAndPassword(
         email,
         password
       );
+
       await this.sendVerificationEmail();
+
+      this.setUserData( user, nombre, apellido, dni, role );
       return user;
     } catch (error) {
       console.log(error);
@@ -89,19 +93,38 @@ export class AuthService extends RoleValidator {
   }
 
   private updateUserData(user: User) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${user.uid}`
+    const userRef: AngularFirestoreDocument<Alumno> = this.afs.doc(
+      `alumnos/${user.uid}`
     );
 
-    const data: User = {
+    const alumno: Alumno = {
       uid: user.uid,
       email: user.email,
       emailVerified: user.emailVerified,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      role: 'ADMINISTRADOR',
     };
 
-    return userRef.set(data, { merge: true });
+    return userRef.set(alumno, { merge: true });
+  }
+
+  private setUserData(user: User, nombre: string, apellido: string, dni: number, role) {
+    const userRef: AngularFirestoreDocument<Alumno> = this.afs.doc(
+      `alumnos/${user.uid}`
+    );
+
+    const alumno: Alumno = {
+      uid: user.uid,
+      email: user.email,
+      nombre,
+      apellido,
+      dni,
+      emailVerified: user.emailVerified,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      role,
+    };
+
+    return userRef.set(alumno, { merge: true });
   }
 }

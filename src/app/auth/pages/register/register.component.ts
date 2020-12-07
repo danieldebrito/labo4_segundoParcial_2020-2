@@ -15,22 +15,27 @@ export class RegisterComponent {
   public showErrors = false;
 
   registerForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(20)]),
+    email: new FormControl('', [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(90)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]),
     nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(40), Validators.pattern("[a-zA-Z ]{2,41}")]),
     apellido: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(40), Validators.pattern("[a-zA-Z ]{2,41}")]),
     dni: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(8), Validators.pattern("^[0-9]*$")]),
+    role: new FormControl('ALUMNO'),
   });
+
 
   constructor(private authSvc: AuthService, private router: Router) { }
 
+
+
   async onRegister() {
+
     if (this.registerForm.invalid) {
       this.showErrors = true;
     } else {
-      const { email, password } = this.registerForm.value;
+      const { email, password, nombre, apellido, dni, role } = this.registerForm.value;
       try {
-        const user = await this.authSvc.register(email, password);
+        const user = await this.authSvc.register( email, password, nombre, apellido, dni, role );
         if (user) {
           this.checkUserIsVerified(user);
         }
