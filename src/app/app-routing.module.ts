@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminGuard } from './auth/guards/admin.guard';
 import { CommonModule } from '@angular/common';
 
+import { MateriaComponent } from './materia/materia.component';
+
 /*
 
 import { AdminComponent } from './admin/admin.component';
@@ -41,38 +43,15 @@ const routes: Routes = [
   {
     path: 'permisoDenegado',
     loadChildren: () => import('./auth/pages/permiso-denegado/permiso-denegado.module').then(m => m.PermisoDenegadoModule)
-  }
-  /*,
-  {
-    path: 'turnoReserva',
-    loadChildren: () => import('./turnos/pages/turnos-board/turnos-board.module').then(m => m.TurnosBoardModule),
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'turnoListado',
-    loadChildren: () => import('./turnos/pages/turnos-listado/turnos-listado.module').then(m => m.TurnosListadoModule)
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./layout/home/home.module').then(m => m.HomeModule),
-    data: { animation: 'home' }
-  },
-  {
-    path: 'historiaClinica',
-    loadChildren: () => import('./pacientes/pages/historia-clinica/historia-clinica.module').then(m => m.HistoriaClinicaModule)
-  },
-  {
-    path: 'especialidades',
-    loadChildren: () => import('./especialidades/especialidades.module').then(m => m.EspecialidadesModule)
   },
   {
     path: 'admin',
-    component: AdminComponent,
+    component: MateriaComponent,
     children: [
       {
-        path: '',
-        loadChildren: () => import('./informes/informes.module').then(m => m.InformesModule)
-      }
+        path: 'materia',
+        loadChildren: () => import('./materia/pages/materia-board/materia-board.module').then(m => m.MateriaBoardModule)
+      }/*
       ,
       {
         path: 'informes',
@@ -85,33 +64,9 @@ const routes: Routes = [
       {
         path: 'usuarios',
         loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
-      }
+      }*/
     ]
   },
-  {
-    path: 'profecionales',
-    component: ProfesionalesComponent,
-    children: [
-      /*
-      {
-        path: '',
-        loadChildren: () => import('./informes/informes.module').then(m => m.InformesModule)
-      }
-      ,
-      {
-        path: 'informes',
-        loadChildren: () => import('./informes/informes.module').then(m => m.InformesModule)
-      },
-      {
-        path: 'especialidades',
-        loadChildren: () => import('./especialidades/especialidades.module').then(m => m.EspecialidadesModule)
-      },
-      {
-        path: 'usuarios',
-        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
-      }
-    ]
-  }*/
 ]
 
 @NgModule({
@@ -235,3 +190,75 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 */
+
+
+  /*,
+  {
+    path: 'turnoReserva',
+    loadChildren: () => import('./turnos/pages/turnos-board/turnos-board.module').then(m => m.TurnosBoardModule),
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'turnoListado',
+    loadChildren: () => import('./turnos/pages/turnos-listado/turnos-listado.module').then(m => m.TurnosListadoModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./layout/home/home.module').then(m => m.HomeModule),
+    data: { animation: 'home' }
+  },
+  {
+    path: 'historiaClinica',
+    loadChildren: () => import('./pacientes/pages/historia-clinica/historia-clinica.module').then(m => m.HistoriaClinicaModule)
+  },
+  {
+    path: 'especialidades',
+    loadChildren: () => import('./especialidades/especialidades.module').then(m => m.EspecialidadesModule)
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./informes/informes.module').then(m => m.InformesModule)
+      }
+      ,
+      {
+        path: 'informes',
+        loadChildren: () => import('./informes/informes.module').then(m => m.InformesModule)
+      },
+      {
+        path: 'especialidades',
+        loadChildren: () => import('./especialidades/especialidades.module').then(m => m.EspecialidadesModule)
+      },
+      {
+        path: 'usuarios',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+      }
+    ]
+  },
+  {
+    path: 'profecionales',
+    component: ProfesionalesComponent,
+    children: [
+      /*
+      {
+        path: '',
+        loadChildren: () => import('./informes/informes.module').then(m => m.InformesModule)
+      }
+      ,
+      {
+        path: 'informes',
+        loadChildren: () => import('./informes/informes.module').then(m => m.InformesModule)
+      },
+      {
+        path: 'especialidades',
+        loadChildren: () => import('./especialidades/especialidades.module').then(m => m.EspecialidadesModule)
+      },
+      {
+        path: 'usuarios',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+      }
+    ]
+  }*/

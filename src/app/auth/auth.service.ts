@@ -10,7 +10,6 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { RoleValidator } from 'src/app/auth/helpers/roleValidator';
-import { Alumno } from '../alumno/class/alumno';
 
 @Injectable({
   providedIn: 'root'
@@ -93,11 +92,11 @@ export class AuthService extends RoleValidator {
   }
 
   private updateUserData(user: User) {
-    const userRef: AngularFirestoreDocument<Alumno> = this.afs.doc(
-      `alumnos/${user.uid}`
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+      `users/${user.uid}`
     );
 
-    const alumno: Alumno = {
+    const userUpdate: User = {
       uid: user.uid,
       email: user.email,
       emailVerified: user.emailVerified,
@@ -105,15 +104,15 @@ export class AuthService extends RoleValidator {
       photoURL: user.photoURL,
     };
 
-    return userRef.set(alumno, { merge: true });
+    return userRef.set(userUpdate, { merge: true });
   }
 
   private setUserData(user: User, nombre: string, apellido: string, dni: number, role) {
-    const userRef: AngularFirestoreDocument<Alumno> = this.afs.doc(
-      `alumnos/${user.uid}`
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+      `users/${user.uid}`
     );
 
-    const alumno: Alumno = {
+    const userSet: User = {
       uid: user.uid,
       email: user.email,
       nombre,
@@ -125,6 +124,6 @@ export class AuthService extends RoleValidator {
       role,
     };
 
-    return userRef.set(alumno, { merge: true });
+    return userRef.set(userSet, { merge: true });
   }
 }

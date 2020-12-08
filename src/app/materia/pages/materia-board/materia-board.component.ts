@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/auth/models/user.interface';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-materia-board',
+  templateUrl: './materia-board.component.html',
+  styleUrls: ['./materia-board.component.css']
 })
-export class RegisterComponent {
+export class MateriaBoardComponent {
+
 
   public showErrors = false;
 
@@ -20,7 +21,7 @@ export class RegisterComponent {
     nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(40), Validators.pattern("[a-zA-Z ]{2,41}")]),
     apellido: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(40), Validators.pattern("[a-zA-Z ]{2,41}")]),
     dni: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(8), Validators.pattern("^[0-9]*$")]),
-    role: new FormControl('', [Validators.required]),
+    role: new FormControl('ALUMNO'),
   });
 
 

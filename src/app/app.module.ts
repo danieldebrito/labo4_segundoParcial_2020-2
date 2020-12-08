@@ -12,12 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // ============================== mys modules ============================== //
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
-/*
-import { TurnosModule } from './turnos/turnos.module';
-import { PacientesComponentsModule } from './pacientes/pacientes-components.module';
-import { AdminModule } from './admin/admin.module';
-import { ProfesionalesModule } from './profesionales/profesionales.module';
-*/
+import { MateriaModule } from './materia/materia.module';
 
 
 @NgModule({
@@ -25,23 +20,20 @@ import { ProfesionalesModule } from './profesionales/profesionales.module';
     AppComponent
   ],
   imports: [
+    // ****************** ANGULAR MODULES ************************ //
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    // ****************** SERVICES MODULE ************************ //
+    // ****************** SERVICES MODULES ************************ //
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    // ****************** mys MODULES ************************ //
+    // ****************** MYS MODULES ************************ //
     LayoutModule,
-    AuthModule
-    /*
-    TurnosModule,
-    AdminModule,
-    PacientesComponentsModule,
-    ProfesionalesModule*/
+    AuthModule,
+    MateriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

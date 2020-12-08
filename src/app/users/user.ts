@@ -1,6 +1,6 @@
 export type Roles = 'ALUMNO' | 'PROFESOR' | 'ADMINISTRADOR';
 
-export class Alumno {
+export class User {
     constructor(
         public uid?: string,
         public nombre?: string,

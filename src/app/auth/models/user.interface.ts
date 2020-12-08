@@ -1,14 +1,18 @@
 export type Roles = 'ALUMNO' | 'PROFESOR' | 'ADMINISTRADOR';
 
 export interface User {
-  uid: string;
+  uid?: string;
   nombre?: string;
   apellido?: string;
-  dni?: number;
-  email: string;
-  password?: string;
+  email?: string;
+  emailVerified?: boolean;
   displayName?: string;
-  emailVerified: boolean;
   photoURL?: string;
+  password?: string;
+  dni?: number;
+  sexo?: string;
+  fechanacimiento?: string;
+  foto?: string;
+  paisOrigen?: string;
   role?: Roles;
 }
