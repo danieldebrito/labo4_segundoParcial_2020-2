@@ -8,6 +8,8 @@ import { MateriaModule } from 'src/app/materia/materia.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { UsersModule } from 'src/app/users/users.module';
+
 @NgModule({
   declarations: [
     MateriaBoardComponent,
@@ -17,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MateriaBoardRoutingModule,
     MateriaModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UsersModule
   ],
   exports: [
     MateriaBoardComponent

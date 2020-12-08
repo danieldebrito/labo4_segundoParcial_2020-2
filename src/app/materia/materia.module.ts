@@ -13,6 +13,8 @@ import { MateriaListadoComponent } from './components/materia-listado/materia-li
 import { MateriaModificarComponent } from './components/materia-modificar/materia-modificar.component';
 import { MateriaComponent } from './materia.component';
 
+import { UsersModule } from 'src/app/users/users.module';
+
 @NgModule({
   declarations: [
     MateriaAltaComponent,
@@ -27,7 +29,8 @@ import { MateriaComponent } from './materia.component';
     CommonModule,
     MateriaRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UsersModule
   ],
   exports: [
     MateriaAltaComponent,

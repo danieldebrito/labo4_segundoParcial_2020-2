@@ -13,6 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
 import { MateriaModule } from './materia/materia.module';
+import { UsersModule } from './users/users.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MateriaModule } from './materia/materia.module';
     // ****************** MYS MODULES ************************ //
     LayoutModule,
     AuthModule,
-    MateriaModule
+    MateriaModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

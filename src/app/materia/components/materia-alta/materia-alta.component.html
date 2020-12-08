@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-10 mx-auto mt-5">
+  <div class="col-md-10 mx-auto">
     <div class="card">
       <div class="card-body">
         <h1 class="text-center">Alta de Materia</h1>
-        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <form [formGroup]="materiaForm" (ngSubmit)="add()">
 
           <div class="row">
             <div class="col-sm-6">
@@ -14,19 +14,19 @@
               </div>
 
               <div
-                *ngIf="registerForm.get('nombre').invalid && showErrors"
+                *ngIf="materiaForm.get('nombre').invalid && showErrors"
                 class="alert alert-danger mt-2">
-                <div *ngIf="registerForm.get('nombre').errors?.required">
+                <div *ngIf="materiaForm.get('nombre').errors?.required">
                   Este campo es requerido.
                 </div>
-                <div *ngIf="registerForm.get('nombre').errors?.maxlength">
-                  No mas de 40 caracteres.
+                <div *ngIf="materiaForm.get('nombre').errors?.maxlength">
+                  No mas de 150 caracteres.
                 </div>
-                <div *ngIf="registerForm.get('nombre').errors?.minlength">
+                <div *ngIf="materiaForm.get('nombre').errors?.minlength">
                   Por lo menos 2 caracteres.
                 </div>
-                <div *ngIf="registerForm.get('nombre').errors?.pattern">
-                  Ingrece solo letras.
+                <div *ngIf="materiaForm.get('nombre').errors?.pattern">
+                  Ingrese solo letras.
                 </div>
               </div>
 
@@ -44,18 +44,18 @@
               </div>
 
               <div
-                *ngIf="registerForm.get('apellido').invalid && showErrors"
+                *ngIf="materiaForm.get('cuatrimestre').invalid && showErrors"
                 class="alert alert-danger mt-2">
-                <div *ngIf="registerForm.get('apellido').errors?.required">
+                <div *ngIf="materiaForm.get('cuatrimestre').errors?.required">
                   Este campo es requerido.
                 </div>
-                <div *ngIf="registerForm.get('apellido').errors?.maxlength">
-                  No mas de 40 caracteres.
+                <div *ngIf="materiaForm.get('cuatrimestre').errors?.maxlength">
+                  No mas de 1 digito.
                 </div>
-                <div *ngIf="registerForm.get('apellido').errors?.minlength">
-                  Por lo menos 2 caracteres.
+                <div *ngIf="materiaForm.get('cuatrimestre').errors?.minlength">
+                  Por lo menos 1 digito.
                 </div>
-                <div *ngIf="registerForm.get('apellido').errors?.pattern">
+                <div *ngIf="materiaForm.get('cuatrimestre').errors?.pattern">
                   Ingrece solo letras.
                 </div>
               </div>
@@ -67,23 +67,23 @@
             <div class="col-sm-6">
 
               <div class="form-group">
-                <label for="password">Cupo de Alumnos</label>
+                <label for="cupo">Cupo de Alumnos</label>
                 <input type="number" class="form-control" formControlName="cupo" (click)="resetError()" />
               </div>
 
               <div
-                *ngIf="registerForm.get('dni').invalid && showErrors"
+                *ngIf="materiaForm.get('cupo').invalid && showErrors"
                 class="alert alert-danger mt-2">
-                <div *ngIf="registerForm.get('dni').errors?.required">
+                <div *ngIf="materiaForm.get('cupo').errors?.required">
                   Este campo es requerido.
                 </div>
-                <div *ngIf="registerForm.get('dni').errors?.maxlength">
-                  No mas de 8 digitos.
+                <div *ngIf="materiaForm.get('cupo').errors?.maxlength">
+                  No mas de 3 digitos.
                 </div>
-                <div *ngIf="registerForm.get('dni').errors?.minlength">
-                  Por lo menos 7 digitos.
+                <div *ngIf="materiaForm.get('cupo').errors?.minlength">
+                  Por lo menos 1 digito.
                 </div>
-                <div *ngIf="registerForm.get('dni').errors?.pattern">
+                <div *ngIf="materiaForm.get('cupo').errors?.pattern">
                   Ingrece solo numeros.
                 </div>
               </div>
@@ -101,41 +101,19 @@
                 </div>
 
                 <div
-                  *ngIf="registerForm.get('password').invalid && showErrors"
+                  *ngIf="materiaForm.get('año').invalid && showErrors"
                   class="alert alert-danger mt-2">
-                  <div *ngIf="registerForm.get('password').errors?.required">
+                  <div *ngIf="materiaForm.get('año').errors?.required">
                     Este campo es requerido.
                   </div>
-                  <div *ngIf="registerForm.get('password').errors?.minlength">
-                    Por lo menos 6 digitos.
+                  <div *ngIf="materiaForm.get('año').errors?.minlength">
+                    Por lo menos 4 digitos.
                   </div>
-                  <div *ngIf="registerForm.get('password').errors?.maxlength">
-                    No mas de 40 digitos.
+                  <div *ngIf="materiaForm.get('año').errors?.maxlength">
+                    No mas de 4 digitos.
                   </div>
                 </div>
 
-              </div>
-
-              <div class="form-group">
-                <label for="profesores">Profesores</label>
-                <input type="email" class="form-control" formControlName="email" />
-              </div>
-
-              <div
-                *ngIf="registerForm.get('email').invalid && showErrors"
-                class="alert alert-danger mt-2">
-                <div *ngIf="registerForm.get('email').errors?.required">
-                  Este campo es requerido.
-                </div>
-                <div *ngIf="registerForm.get('email').errors?.email">
-                  Debe ingresar un mail valido.
-                </div>
-                <div *ngIf="registerForm.get('email').errors?.minlength">
-                  Por lo menos 6 digitos.
-                </div>
-                <div *ngIf="registerForm.get('email').errors?.maxlength">
-                  No mas de 90 digitos.
-                </div>
               </div>
 
             </div>
