@@ -51,6 +51,10 @@ const routes: Routes = [
       {
         path: 'materia',
         loadChildren: () => import('./materia/pages/materia-board/materia-board.module').then(m => m.MateriaBoardModule)
+      },
+      {
+        path: 'alta',
+        loadChildren: () => import('./administradores/administradores.module').then(m => m.AdministradoresModule)
       }/*
       ,
       {

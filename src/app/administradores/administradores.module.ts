@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterRoutingModule } from './register-routing.module';
 import { AuthService } from 'src/app/auth/auth.service';
-import { RegisterComponent } from './register.component';
+
+import { AdministradoresRoutingModule } from './administradores-routing.module';
+import { AdministradoresComponent } from './administradores.component';
+
 
 @NgModule({
-  declarations: [
-    RegisterComponent
-   ],
+  declarations: [AdministradoresComponent],
   imports: [
     CommonModule,
-    RegisterRoutingModule,
+    AdministradoresRoutingModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -21,4 +21,4 @@ import { RegisterComponent } from './register.component';
     AuthService
   ],
 })
-export class RegisterModule { }
+export class AdministradoresModule { }
