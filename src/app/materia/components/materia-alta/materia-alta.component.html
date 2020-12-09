@@ -1,133 +1,137 @@
 <div class="row">
-  <div class="col-md-10 mx-auto">
-    <div class="card">
-      <div class="card-body">
-        <h1 class="text-center">Alta de Materia</h1>
-        <form [formGroup]="materiaForm" (ngSubmit)="add()">
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="text-center">Alta de Materia</h1>
+            <form [formGroup]="materiaForm" (ngSubmit)="add()">
 
-          <div class="row">
-            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-6">
 
-              <div class="form-group">
-                <label for="nombre">Materia Nombre</label>
-                <input type="text" class="form-control" formControlName="nombre" (click)="resetError()" />
+                  <div class="form-group">
+                    <label for="nombre">Materia Nombre</label>
+                    <input type="text" class="form-control" formControlName="nombre" (click)="resetError()" />
+                  </div>
+
+                  <div
+                    *ngIf="materiaForm.get('nombre').invalid && showErrors"
+                    class="alert alert-danger mt-2">
+                    <div *ngIf="materiaForm.get('nombre').errors?.required">
+                      Este campo es requerido.
+                    </div>
+                    <div *ngIf="materiaForm.get('nombre').errors?.maxlength">
+                      No mas de 150 caracteres.
+                    </div>
+                    <div *ngIf="materiaForm.get('nombre').errors?.minlength">
+                      Por lo menos 2 caracteres.
+                    </div>
+                    <div *ngIf="materiaForm.get('nombre').errors?.pattern">
+                      Ingrese solo letras.
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col-sm-6">
+
+                  <div class="form-group">
+                    <label for="cuatrimestre">Cuatrimestre</label>
+                    <select class="form-control" formControlName="cuatrimestre" aria-label="Default select example" (click)="resetError()">
+                      <option selected>Seleccioná el Cuatrimestre</option>
+                      <option value="1">Primero</option>
+                      <option value="2">Segundo</option>
+                    </select>
+                  </div>
+
+                  <div
+                    *ngIf="materiaForm.get('cuatrimestre').invalid && showErrors"
+                    class="alert alert-danger mt-2">
+                    <div *ngIf="materiaForm.get('cuatrimestre').errors?.required">
+                      Este campo es requerido.
+                    </div>
+                    <div *ngIf="materiaForm.get('cuatrimestre').errors?.maxlength">
+                      No mas de 1 digito.
+                    </div>
+                    <div *ngIf="materiaForm.get('cuatrimestre').errors?.minlength">
+                      Por lo menos 1 digito.
+                    </div>
+                    <div *ngIf="materiaForm.get('cuatrimestre').errors?.pattern">
+                      Ingrece solo letras.
+                    </div>
+                  </div>
+
+                </div>
               </div>
 
-              <div
-                *ngIf="materiaForm.get('nombre').invalid && showErrors"
-                class="alert alert-danger mt-2">
-                <div *ngIf="materiaForm.get('nombre').errors?.required">
-                  Este campo es requerido.
+              <div class="row">
+                <div class="col-sm-6">
+
+                  <div class="form-group">
+                    <label for="cupo">Cupo de Alumnos</label>
+                    <input type="number" class="form-control" formControlName="cupo" (click)="resetError()" />
+                  </div>
+
+                  <div
+                    *ngIf="materiaForm.get('cupo').invalid && showErrors"
+                    class="alert alert-danger mt-2">
+                    <div *ngIf="materiaForm.get('cupo').errors?.required">
+                      Este campo es requerido.
+                    </div>
+                    <div *ngIf="materiaForm.get('cupo').errors?.maxlength">
+                      No mas de 3 digitos.
+                    </div>
+                    <div *ngIf="materiaForm.get('cupo').errors?.minlength">
+                      Por lo menos 1 digito.
+                    </div>
+                    <div *ngIf="materiaForm.get('cupo').errors?.pattern">
+                      Ingrece solo numeros.
+                    </div>
+                  </div>
+
                 </div>
-                <div *ngIf="materiaForm.get('nombre').errors?.maxlength">
-                  No mas de 150 caracteres.
+
+                <div class="col-sm-6">
+
+                    <div class="form-group">
+                      <label for="año">Año</label>
+                      <input type="number" class="form-control" formControlName="año" />
+                    </div>
+
+                    <div
+                      *ngIf="materiaForm.get('año').invalid && showErrors"
+                      class="alert alert-danger mt-2">
+                      <div *ngIf="materiaForm.get('año').errors?.required">
+                        Este campo es requerido.
+                      </div>
+                      <div *ngIf="materiaForm.get('año').errors?.minlength">
+                        Por lo menos 4 digitos.
+                      </div>
+                      <div *ngIf="materiaForm.get('año').errors?.maxlength">
+                        No mas de 4 digitos.
+                      </div>
+                    </div>
                 </div>
-                <div *ngIf="materiaForm.get('nombre').errors?.minlength">
-                  Por lo menos 2 caracteres.
-                </div>
-                <div *ngIf="materiaForm.get('nombre').errors?.pattern">
-                  Ingrese solo letras.
-                </div>
+                <app-users-listado  (lanzaUsuaio)="agregarUsuario($event)" [usuarios]="profesoresAdd"></app-users-listado>
+
               </div>
 
-            </div>
-
-            <div class="col-sm-6">
-
-              <div class="form-group">
-                <label for="cuatrimestre">Cuatrimestre</label>
-                <select class="form-control" formControlName="cuatrimestre" aria-label="Default select example" (click)="resetError()">
-                  <option selected>Seleccioná el Cuatrimestre</option>
-                  <option value="1">Primero</option>
-                  <option value="2">Segundo</option>
-                </select>
-              </div>
-
-              <div
-                *ngIf="materiaForm.get('cuatrimestre').invalid && showErrors"
-                class="alert alert-danger mt-2">
-                <div *ngIf="materiaForm.get('cuatrimestre').errors?.required">
-                  Este campo es requerido.
-                </div>
-                <div *ngIf="materiaForm.get('cuatrimestre').errors?.maxlength">
-                  No mas de 1 digito.
-                </div>
-                <div *ngIf="materiaForm.get('cuatrimestre').errors?.minlength">
-                  Por lo menos 1 digito.
-                </div>
-                <div *ngIf="materiaForm.get('cuatrimestre').errors?.pattern">
-                  Ingrece solo letras.
-                </div>
-              </div>
-
+              <button type="submit" class="btn btn-primary btn-lg btn-block">
+                Guardar
+              </button>
+            </form>
+            <div class="form-group mt-3">
+              <p>Do you have an account?<a [routerLink]="['/login']"> Login </a></p>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-sm-6">
-
-              <div class="form-group">
-                <label for="cupo">Cupo de Alumnos</label>
-                <input type="number" class="form-control" formControlName="cupo" (click)="resetError()" />
-              </div>
-
-              <div
-                *ngIf="materiaForm.get('cupo').invalid && showErrors"
-                class="alert alert-danger mt-2">
-                <div *ngIf="materiaForm.get('cupo').errors?.required">
-                  Este campo es requerido.
-                </div>
-                <div *ngIf="materiaForm.get('cupo').errors?.maxlength">
-                  No mas de 3 digitos.
-                </div>
-                <div *ngIf="materiaForm.get('cupo').errors?.minlength">
-                  Por lo menos 1 digito.
-                </div>
-                <div *ngIf="materiaForm.get('cupo').errors?.pattern">
-                  Ingrece solo numeros.
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-6">
-
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="año">Año</label>
-                  <input type="number" class="form-control" formControlName="año" />
-                </div>
-
-                <div
-                  *ngIf="materiaForm.get('año').invalid && showErrors"
-                  class="alert alert-danger mt-2">
-                  <div *ngIf="materiaForm.get('año').errors?.required">
-                    Este campo es requerido.
-                  </div>
-                  <div *ngIf="materiaForm.get('año').errors?.minlength">
-                    Por lo menos 4 digitos.
-                  </div>
-                  <div *ngIf="materiaForm.get('año').errors?.maxlength">
-                    No mas de 4 digitos.
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-block">
-            Register
-          </button>
-        </form>
-        <div class="form-group mt-3">
-          <p>Do you have an account?<a [routerLink]="['/login']"> Login </a></p>
         </div>
       </div>
     </div>
+
+
+  </div>
+  <div class="col-sm-6">
+    <app-users-listado  (lanzaUsuaio)="agregarUsuario($event)" [usuarios]="profesores"></app-users-listado>
   </div>
 </div>
-

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Materia } from 'src/app/materia/materia';
@@ -13,12 +13,13 @@ import { UsuariosService } from 'src/app/auth/usuarios.service';
   templateUrl: './materia-alta.component.html',
   styleUrls: ['./materia-alta.component.css']
 })
-export class MateriaAltaComponent {
+export class MateriaAltaComponent implements OnInit {
 
   public showErrors = false;
 
-  public usuarios: User[] = [];
-  public usuario: User = {};
+  public profesores: User[] = [];
+  public profesoresAdd: User[] = [];
+  public profesor: User = {};
 
   public materias: Materia[] = [];
   public materia: Materia = {};
@@ -37,12 +38,30 @@ export class MateriaAltaComponent {
     private matScv: MateriaService
   ) { }
 
-  public add() {
-    console.log(this.materiaForm.value);
-    this.matScv.addItem(this.materiaForm.value);
-  }
-
   public resetError() {
     this.showErrors = false;
+  }
+
+  // **************** MATERIA ***************** //
+  public add() {
+    let materia: Materia = this.materiaForm.value;
+    materia.profesores = this.profesoresAdd;
+    this.matScv.addItem(materia);
+  }
+
+  public agregarUsuario(event) {
+    this.profesoresAdd.push(event.usuarioLanzado);
+  }
+
+  // **************** USUARIO ***************** //
+  public getProfesores() {
+    this.usrSvc.getItems().subscribe(response => {
+      this.profesores = response.filter( item => item.role == 'PROFESOR');
+      return response;
+    });
+  }
+
+  ngOnInit(): void {
+    this.getProfesores();
   }
 }

@@ -9,7 +9,7 @@ import { User } from 'src/app/auth/models/user.interface';
 export class UsersListadoComponent implements OnInit {
 
 
-  @Input() users: User[];
+  @Input() usuarios: User[];
   @Output() lanzaUsuaio = new EventEmitter();
   public p: number;  // paginacion primer page
 
