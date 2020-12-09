@@ -50,7 +50,7 @@ const routes: Routes = [
     children: [
       {
         path: 'materia',
-        loadChildren: () => import('./materia/pages/materia-board/materia-board.module').then(m => m.MateriaBoardModule)
+        loadChildren: () => import('./materia/pages/materia-alta/materia-board.module').then(m => m.MateriaBoardModule)
       },
       {
         path: 'alta',
