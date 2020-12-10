@@ -8,6 +8,7 @@ export class Materia {
         public cupo?: string,
         public anio?: string,
         public profesorfoto?: string,
-        public profesores?: User[],
+        public profesor?: User,
+        public alumnos?: User[],
     ) { }
 }

@@ -15,9 +15,7 @@
                     <input type="text" class="form-control" formControlName="nombre" (click)="resetError()" />
                   </div>
 
-                  <div
-                    *ngIf="materiaForm.get('nombre').invalid && showErrors"
-                    class="alert alert-danger mt-2">
+                  <div *ngIf="materiaForm.get('nombre').invalid && showErrors" class="alert alert-danger mt-2">
                     <div *ngIf="materiaForm.get('nombre').errors?.required">
                       Este campo es requerido.
                     </div>
@@ -38,16 +36,15 @@
 
                   <div class="form-group">
                     <label for="cuatrimestre">Cuatrimestre</label>
-                    <select class="form-control" formControlName="cuatrimestre" aria-label="Default select example" (click)="resetError()">
+                    <select class="form-control" formControlName="cuatrimestre" aria-label="Default select example"
+                      (click)="resetError()">
                       <option selected>Seleccioná el Cuatrimestre</option>
                       <option value="1">Primero</option>
                       <option value="2">Segundo</option>
                     </select>
                   </div>
 
-                  <div
-                    *ngIf="materiaForm.get('cuatrimestre').invalid && showErrors"
-                    class="alert alert-danger mt-2">
+                  <div *ngIf="materiaForm.get('cuatrimestre').invalid && showErrors" class="alert alert-danger mt-2">
                     <div *ngIf="materiaForm.get('cuatrimestre').errors?.required">
                       Este campo es requerido.
                     </div>
@@ -73,9 +70,7 @@
                     <input type="number" class="form-control" formControlName="cupo" (click)="resetError()" />
                   </div>
 
-                  <div
-                    *ngIf="materiaForm.get('cupo').invalid && showErrors"
-                    class="alert alert-danger mt-2">
+                  <div *ngIf="materiaForm.get('cupo').invalid && showErrors" class="alert alert-danger mt-2">
                     <div *ngIf="materiaForm.get('cupo').errors?.required">
                       Este campo es requerido.
                     </div>
@@ -94,27 +89,27 @@
 
                 <div class="col-sm-6">
 
-                    <div class="form-group">
-                      <label for="año">Año</label>
-                      <input type="number" class="form-control" formControlName="año" />
-                    </div>
+                  <div class="form-group">
+                    <label for="año">Año</label>
+                    <input type="number" class="form-control" formControlName="año" />
+                  </div>
 
-                    <div
-                      *ngIf="materiaForm.get('año').invalid && showErrors"
-                      class="alert alert-danger mt-2">
-                      <div *ngIf="materiaForm.get('año').errors?.required">
-                        Este campo es requerido.
-                      </div>
-                      <div *ngIf="materiaForm.get('año').errors?.minlength">
-                        Por lo menos 4 digitos.
-                      </div>
-                      <div *ngIf="materiaForm.get('año').errors?.maxlength">
-                        No mas de 4 digitos.
-                      </div>
+                  <div *ngIf="materiaForm.get('año').invalid && showErrors" class="alert alert-danger mt-2">
+                    <div *ngIf="materiaForm.get('año').errors?.required">
+                      Este campo es requerido.
                     </div>
+                    <div *ngIf="materiaForm.get('año').errors?.minlength">
+                      Por lo menos 4 digitos.
+                    </div>
+                    <div *ngIf="materiaForm.get('año').errors?.maxlength">
+                      No mas de 4 digitos.
+                    </div>
+                  </div>
                 </div>
-                <app-users-listado  (lanzaUsuaio)="agregarUsuario($event)" [usuarios]="profesoresAdd"></app-users-listado>
 
+                <div class="container p-2">
+                  <app-user-detalle [item]="profesor"></app-user-detalle>
+                </div>
               </div>
 
               <button type="submit" class="btn btn-primary btn-lg btn-block">
@@ -129,6 +124,6 @@
 
   </div>
   <div class="col-sm-6">
-    <app-users-listado  (lanzaUsuaio)="agregarUsuario($event)" [usuarios]="profesores"></app-users-listado>
+    <app-users-listado (lanzaUsuaio)="agregarUsuario($event)" [usuarios]="profesores"></app-users-listado>
   </div>
 </div>

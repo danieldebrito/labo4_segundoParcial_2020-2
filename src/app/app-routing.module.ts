@@ -55,7 +55,12 @@ const routes: Routes = [
       {
         path: 'alta',
         loadChildren: () => import('./administradores/administradores.module').then(m => m.AdministradoresModule)
-      }/*
+      },
+      {
+        path: 'materia_alumno',
+        loadChildren: () => import('./materia/pages/materia-alumnos/materia-alumnos.module').then(m => m.MateriaAlumnosModule)
+      }
+      /*
       ,
       {
         path: 'informes',

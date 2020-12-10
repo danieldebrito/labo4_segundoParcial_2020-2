@@ -45,12 +45,15 @@ export class MateriaAltaComponent implements OnInit {
   // **************** MATERIA ***************** //
   public add() {
     let materia: Materia = this.materiaForm.value;
-    materia.profesores = this.profesoresAdd;
+    materia.profesor = this.profesor;
     this.matScv.addItem(materia);
+    this.profesor = {};
+    this.materiaForm.reset();
   }
 
   public agregarUsuario(event) {
-    this.profesoresAdd.push(event.usuarioLanzado);
+    //this.profesoresAdd.push(event.usuarioLanzado);
+    this.profesor = event.usuarioLanzado;
   }
 
   // **************** USUARIO ***************** //
