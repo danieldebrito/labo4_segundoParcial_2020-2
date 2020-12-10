@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PagesUsersListadoFiltroComponent } from './pages-users-listado-filtro.component';
+import { UserslistadoDetalleComponent } from 'src/app/users/pages/userslistado-detalle/userslistado-detalle.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PagesUsersListadoFiltroComponent
+    component: UserslistadoDetalleComponent
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PagesUsersListadoFiltroRoutingModule { }
+export class UserslistadoDetalleRoutingModule { }

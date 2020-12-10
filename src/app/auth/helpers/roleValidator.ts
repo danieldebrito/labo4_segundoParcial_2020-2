@@ -1,15 +1,15 @@
 import { User } from 'src/app/auth/models/user.interface';
 
 export class RoleValidator {
-    isPaciente(user): boolean {
-        return user.role === 'PACIENTE';
+    isAlumno(user): boolean {
+        return user.role === 'ALUMNO';
     }
 
     isAdministrador(user): boolean {
         return user.role === 'ADMINISTRADOR';
     }
 
-    isProfecional(user): boolean {
-        return user.role === 'PROFECIONAL';
+    isProfesor(user): boolean {
+        return user.role === 'PROFESOR';
     }
 }

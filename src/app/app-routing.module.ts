@@ -50,23 +50,28 @@ const routes: Routes = [
     children: [
       {
         path: 'materia',
-        loadChildren: () => import('./materia/pages/materia-alta/materia-board.module').then(m => m.MateriaBoardModule)
+        loadChildren: () => import('./materia/pages/materia-alta/materia-board.module').then(m => m.MateriaBoardModule),
+        canActivate: [AdminGuard],
       },
       {
         path: 'alta',
-        loadChildren: () => import('./administradores/administradores.module').then(m => m.AdministradoresModule)
+        loadChildren: () => import('./administradores/administradores.module').then(m => m.AdministradoresModule),
+        canActivate: [AdminGuard],
       },
       {
         path: 'materia_alumno',
-        loadChildren: () => import('./materia/pages/materia-alumnos/materia-alumnos.module').then(m => m.MateriaAlumnosModule)
+        loadChildren: () => import('./materia/pages/materia-alumnos/materia-alumnos.module').then(m => m.MateriaAlumnosModule),
+        canActivate: [AdminGuard],
       },
       {
         path: 'materia_alumno_detalle',
-        loadChildren: () => import('./materia/pages/materia-alumnos-detalle/materia-alumnos-detalle.module').then(m => m.MateriaAlumnosDetalleModule)
+        loadChildren: () => import('./materia/pages/materia-alumnos-detalle/materia-alumnos-detalle.module').then(m => m.MateriaAlumnosDetalleModule),
+        canActivate: [AdminGuard],
       },
       {
         path: 'usuarios_listado',
-        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+        loadChildren: () => import('./users/pages/userslistado-detalle/userslistado-detalle.module').then(m => m.UserslistadoDetalleModule),
+        canActivate: [AdminGuard],
       }
       /*
       ,

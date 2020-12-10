@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminGuard } from './admin.guard';
-import { PacienteGuard } from './paciente.guard';
-import { ProfecionalGuard } from './profecional.guard';
+import { PacienteGuard } from './alumno.guard';
+import { ProfecionalGuard } from './profesor.guard';
 
 @NgModule({
   declarations: [],

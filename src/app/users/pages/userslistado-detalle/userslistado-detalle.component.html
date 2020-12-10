@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" (click)="getAlumnos('ALUMNO')" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+    <label class="form-check-label" for="inlineRadio1">Alumnos</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" (click)="getAlumnos('PROFESOR')" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+    <label class="form-check-label" for="inlineRadio2">Profesores</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" (click)="getAlumnos()" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+    <label class="form-check-label" for="inlineRadio3">Todos</label>
+  </div>
+</div>
+
+
+<app-users-listado [usuarios]="usuarios"  ></app-users-listado>
