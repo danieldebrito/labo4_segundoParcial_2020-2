@@ -15,7 +15,6 @@ import { AuthModule } from './auth/auth.module';
 import { MateriaModule } from './materia/materia.module';
 import { UsersModule } from './users/users.module';
 
-
 @NgModule({
   declarations: [
     AppComponent

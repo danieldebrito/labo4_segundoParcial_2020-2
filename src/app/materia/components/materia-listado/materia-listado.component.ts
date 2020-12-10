@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Materia } from 'src/app/materia/materia';
 
 @Component({
   selector: 'app-materia-listado',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MateriaListadoComponent implements OnInit {
 
-  constructor() { }
+
+  @Input() materias: Materia[];
+  @Output() lanzaMateria = new EventEmitter();
+  public p: number;  // paginacion primer page
+
+  constructor() {
+    this.p = 1;
+  }
+
+  public enviarMateria(materia: Materia) {
+    this.lanzaMateria.emit({materiaLanzado: materia});
+  }
 
   ngOnInit(): void {
   }

@@ -1,1 +1,46 @@
-<p>materia-listado works!</p>
+<div class="container-fluid">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Imagen</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">cuatrimestre</th>
+        <th scope="col">cupo</th>
+        <th scope="col">año</th>
+        <th scope="col">profesor</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of materias  | paginate: { itemsPerPage: 4, currentPage: p }">
+        <td> <img src="{{ item.foto }} "></td>
+        <td> {{ item.nombre }} </td>
+        <td> {{ item.cuatrimestre }} </td>
+        <td> {{ item.cupo }} </td>
+        <td> {{ item.anio }} </td>
+        <td> {{ item.profesor.nombre }} {{ item.profesor.apellido }} </td>
+        <td> <button type="button" class="btn btn-success" (click)="enviarMateria(item)"><i
+              class="fa fa-eye"></i></button> </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event" previousLabel="Previo" nextLabel="Siguiente"></pagination-controls>
+</div>
+
+<!--
+
+  export class Materia {
+    constructor(
+        public id?: string,
+        public nombre?: string,
+        public cuatrimestre?: string,
+        public cupo?: string,
+        public anio?: string,
+        public profesorfoto?: string,
+        public profesor?: User,
+        public alumnos?: User[],
+    ) { }
+}
+
+
+-->

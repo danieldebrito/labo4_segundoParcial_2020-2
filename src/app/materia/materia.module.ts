@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+
+
 import { MateriaRoutingModule } from './materia-routing.module';
 import { MateriaAltaComponent } from './components/materia-alta/materia-alta.component';
 import { MateriaBorrarComponent } from './components/materia-borrar/materia-borrar.component';
@@ -30,7 +33,8 @@ import { UsersModule } from 'src/app/users/users.module';
     MateriaRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    UsersModule
+    UsersModule,
+    NgxPaginationModule
   ],
   exports: [
     MateriaAltaComponent,
