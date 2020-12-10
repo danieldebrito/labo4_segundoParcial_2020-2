@@ -59,6 +59,14 @@ const routes: Routes = [
       {
         path: 'materia_alumno',
         loadChildren: () => import('./materia/pages/materia-alumnos/materia-alumnos.module').then(m => m.MateriaAlumnosModule)
+      },
+      {
+        path: 'materia_alumno_detalle',
+        loadChildren: () => import('./materia/pages/materia-alumnos-detalle/materia-alumnos-detalle.module').then(m => m.MateriaAlumnosDetalleModule)
+      },
+      {
+        path: 'usuarios_listado',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
       }
       /*
       ,
