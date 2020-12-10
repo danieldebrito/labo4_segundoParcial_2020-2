@@ -1,12 +1,17 @@
 <div class="row">
   <div class="col-sm-6">
-    <app-materia-listado [materias]="materias" ></app-materia-listado>
+    <app-materia-listado [materias]="materias" (lanzaMateria)="cargaMateria($event)"></app-materia-listado>
   </div>
   <div class="col-sm-6">
-    <app-materia-detalle></app-materia-detalle>
+    <app-materia-detalle [materia]="materia" ></app-materia-detalle>
+    <div *ngIf="errorCupo" class="alert alert-danger mt-2">
+      {{ errorCupo }}
+    </div>
     <app-users-listado [usuarios]="alumnosAdd"></app-users-listado>
+    <button (click)="modificaMateria()" class="btn btn-primary btn-lg btn-block">Guardar</button>
+
   </div>
   <div class="col-sm-6">
-    <app-users-listado [usuarios]="alumnos" (lanzaUsuaio)="agregarAlumno($event)" ></app-users-listado>
+    <app-users-listado [usuarios]="alumnos" (lanzaUsuario)="agregarAlumno($event)" ></app-users-listado>
   </div>
 </div>

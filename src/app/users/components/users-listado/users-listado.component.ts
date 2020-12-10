@@ -10,7 +10,7 @@ export class UsersListadoComponent implements OnInit {
 
 
   @Input() usuarios: User[];
-  @Output() lanzaUsuaio = new EventEmitter();
+  @Output() lanzaUsuario = new EventEmitter();
   public p: number;  // paginacion primer page
 
   constructor() {
@@ -18,7 +18,7 @@ export class UsersListadoComponent implements OnInit {
   }
 
   public enviarUsuario(usuario: User) {
-    this.lanzaUsuaio.emit({usuarioLanzado: usuario});
+    this.lanzaUsuario.emit({usuarioLanzado: usuario});
   }
 
   ngOnInit(): void {

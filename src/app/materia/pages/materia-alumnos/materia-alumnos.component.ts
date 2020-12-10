@@ -6,6 +6,7 @@ import { MateriaService } from 'src/app/materia/materia.service';
 
 import { User } from 'src/app/auth/models/user.interface';
 import { UsuariosService } from 'src/app/auth/usuarios.service';
+import { isUndefined } from 'util';
 
 
 @Component({
@@ -22,6 +23,8 @@ export class MateriaAlumnosComponent implements OnInit {
   public alumnosAdd: User[] = [];
   public alumno: User = {};
 
+  public errorCupo = '';
+
   constructor(
     private usrSvc: UsuariosService,
     private matScv: MateriaService
@@ -35,6 +38,17 @@ export class MateriaAlumnosComponent implements OnInit {
     });
   }
 
+  public cargaMateria(event) {
+    this.materia = event.materiaLanzado;
+  }
+
+  public modificaMateria(){
+    this.materia.alumnos = this.alumnosAdd;
+    this.matScv.updateItem(this.materia)
+  }
+
+  
+
   // ***************  ALUMNOS *********************** //
 
   public getAlumnos() {
@@ -44,8 +58,11 @@ export class MateriaAlumnosComponent implements OnInit {
   }
 
   public agregarAlumno(event) {
-    this.alumnosAdd.push(event.usuarioLanzado);
-
+    if(  this.materia.cupo > this.alumnosAdd.length ) {
+      this.alumnosAdd.push(event.usuarioLanzado);
+    } else {
+      this.errorCupo = 'No hay mas cupo en esta materia';
+    }
   }
 
   ngOnInit(): void {

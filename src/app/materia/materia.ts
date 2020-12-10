@@ -5,7 +5,7 @@ export class Materia {
         public id?: string,
         public nombre?: string,
         public cuatrimestre?: string,
-        public cupo?: string,
+        public cupo?: number,
         public anio?: string,
         public foto?: string,
         public profesorfoto?: string,
