@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Materia } from 'src/app/materia/materia';
 
 @Component({
   selector: 'app-materia-detalle',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MateriaDetalleComponent implements OnInit {
 
+  @Input() materia: Materia = {};
+  @Output() lanzaMateria = new EventEmitter();
+
   constructor() { }
 
-  ngOnInit(): void {
+  public lanzarUser(materia: Materia) {
+    this.lanzaMateria.emit({materiaLanzado: materia});
   }
 
+  ngOnInit() {
+  }
 }

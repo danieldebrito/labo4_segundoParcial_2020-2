@@ -7,6 +7,7 @@ export class Materia {
         public cuatrimestre?: string,
         public cupo?: string,
         public anio?: string,
+        public foto?: string,
         public profesorfoto?: string,
         public profesor?: User,
         public alumnos?: User[],

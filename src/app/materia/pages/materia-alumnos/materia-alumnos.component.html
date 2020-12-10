@@ -1,1 +1,12 @@
-<app-materia-listado [materias]="materias" ></app-materia-listado>
+<div class="row">
+  <div class="col-sm-6">
+    <app-materia-listado [materias]="materias" ></app-materia-listado>
+  </div>
+  <div class="col-sm-6">
+    <app-materia-detalle></app-materia-detalle>
+    <app-users-listado [usuarios]="alumnosAdd"></app-users-listado>
+  </div>
+  <div class="col-sm-6">
+    <app-users-listado [usuarios]="alumnos" (lanzaUsuaio)="agregarAlumno($event)" ></app-users-listado>
+  </div>
+</div>

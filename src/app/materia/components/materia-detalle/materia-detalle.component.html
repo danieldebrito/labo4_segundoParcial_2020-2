@@ -1,1 +1,27 @@
-<p>materia-detalle works!</p>
+<div class="card" style="width: 18rem;">
+  <img src="{{ materia.foto }}" class="card-img-top" alt="...">
+  <div class="card-body">
+      <h5 class="card-title">Detalle</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item">Nombre: {{ materia.nombre }} </li>
+      <li class="list-group-item">Cuatrimestre: {{ materia.cuatrimestre }} </li>
+      <li class="list-group-item">Cupo: {{ materia.cupo }} </li>
+      <li class="list-group-item">Año: {{ materia.anio }} </li>
+      <li class="list-group-item">Profesor: {{ materia.profesor.nombre }}  {{ materia.profesor.apellido }}</li>
+
+  </ul>
+</div>
+
+<!--
+
+        public id?: string,
+        public nombre?: string,
+        public cuatrimestre?: string,
+        public cupo?: string,
+        public anio?: string,
+        public profesorfoto?: string,
+        public profesor?: User,
+        public alumnos?: User[],
+
+-->
