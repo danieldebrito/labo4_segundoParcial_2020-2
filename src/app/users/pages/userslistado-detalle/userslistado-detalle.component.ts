@@ -15,13 +15,13 @@ export class UserslistadoDetalleComponent implements OnInit {
 
   constructor( private usrSvc: UsuariosService ) { }
 
-  public getAlumnos(rol: Roles) {
-    if(!rol) {
+  public getAlumnos(tipo) {
+    if(tipo === '') {
       this.usrSvc.getItems().subscribe(response => {
         this.usuarios = response; });
     } else {
       this.usrSvc.getItems().subscribe(response => {
-        this.usuarios = response.filter(item => item.role !== undefined && item.role === rol);
+        this.usuarios = response.filter(item => item.role !== undefined && item.role === tipo);
       });
     }
   }

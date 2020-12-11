@@ -14,10 +14,12 @@ import { LayoutModule } from './layout/layout.module';
 import { AuthModule } from './auth/auth.module';
 import { MateriaModule } from './materia/materia.module';
 import { UsersModule } from './users/users.module';
+import { MuestraTipoPipe } from './pipes/muestra-tipo.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MuestraTipoPipe
   ],
   imports: [
     // ****************** ANGULAR MODULES ************************ //

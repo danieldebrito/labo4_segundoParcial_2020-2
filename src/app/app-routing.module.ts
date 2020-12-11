@@ -5,13 +5,6 @@ import { CommonModule } from '@angular/common';
 
 import { MateriaComponent } from './materia/materia.component';
 
-/*
-
-import { AdminComponent } from './admin/admin.component';
-import { ProfesionalesComponent } from './profesionales/profesionales.component';
-*/
-
-
 const routes: Routes = [
   {
     path: '',
