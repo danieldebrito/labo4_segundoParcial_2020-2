@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
 import { Materia } from 'src/app/materia/materia';
 import { MateriaService } from 'src/app/materia/materia.service';
-
-
 import { User } from 'src/app/auth/models/user.interface';
 import { UsuariosService } from 'src/app/auth/usuarios.service';
 
